@@ -103,7 +103,7 @@ async function changeQuote() {
   let newQuote;
   let m = (1 - 2) / (500 - 200);
   let c = 2 - m * 200;
-  if (pool.length > 1) {
+  if (pool.length > 0) {
     newQuote = pool[0 + Math.floor(pool.length * Math.random())];
     let newBack = COLORS[0 + Math.floor(COLORS.length * Math.random())];
     container.style.background = newBack;
