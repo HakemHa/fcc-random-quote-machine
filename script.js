@@ -64,13 +64,13 @@ React.createElement("path", {
 
 function App() {
   return /*#__PURE__*/(
-    React.createElement("wrapper", { id: "quote-box" }, /*#__PURE__*/
+    React.createElement("div", { id: "quote-box" }, /*#__PURE__*/
     React.createElement("div", { id: "text-author" }, /*#__PURE__*/
     React.createElement("div", { id: "text-block" }, /*#__PURE__*/
-    React.createElement(TextBox, { id: "text", value: "" })), /*#__PURE__*/
+    React.createElement(TextBox, { id: "text", value: "The unexamined life is not worth living" })), /*#__PURE__*/
 
     React.createElement("div", { id: "author-block" }, /*#__PURE__*/
-    React.createElement(TextBox, { id: "author", value: "" }))), /*#__PURE__*/
+    React.createElement(TextBox, { id: "author", value: "~ Socrates" }))), /*#__PURE__*/
 
 
     React.createElement("div", { id: "tweet-new" }, /*#__PURE__*/
