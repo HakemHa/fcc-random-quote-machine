@@ -1,0 +1,175 @@
+/* CSS Reset */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+
+/*
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+  8. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+
+#root {
+  --back-color: #34c227;
+  --font: "Raleway", sans-serif;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font);
+  background: var(--back-color);
+  color: var(--back-color);
+  transition: all 1s ease-out;
+  position: relative;
+}
+
+#quote-box {
+  background: white;
+  min-width: 40vw;
+  max-width: 95vw;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 30px 30px 10px 30px;
+  margin-bottom: 0;
+  margin-top: 0;
+  position: absolute;
+}
+
+#text-author {
+  margin-bottom: 20px;
+}
+
+#text-block {
+  display: flex;
+  flex-direction: row;
+}
+
+#author-block {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#tweet-new {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 60vw;
+}
+
+#text {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+#author {
+  font-weight: 300;
+}
+
+.button {
+  background: var(--back-color);
+  border: none;
+  border-radius: 3px;
+  height: 40px;
+  padding: 0px;
+  color: white;
+  transition: all 1s ease-out;
+}
+
+.button:hover {
+  background: #4fd943;
+  cursor: pointer;
+}
+
+#tweet-quote button {
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#tweet-quote button svg {
+  width: 50%;
+  aspect-ratio: 1/1;
+}
+
+#new-quote {
+  padding: 0 10px;
+}
+
+#github {
+  all: unset;
+  cursor: pointer;
+  margin-top: 10px;
+  color: white;
+  position: absolute;
+  top: 50vh;
+}
+
+@media only screen and (max-width: 800px) {
+  #github {
+    top: 80vh;
+  }
+}
