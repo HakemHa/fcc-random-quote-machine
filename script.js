@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-
+import getRandomLocal from "./quotes.js"
 
 
 const container = document.getElementById("root");
@@ -50,7 +50,7 @@ React.createElement("svg", {
   "shapeRendering": "geometricPrecision",
   "textRendering": "geometricPrecision",
   "imageRendering": "optimizeQuality",
-  "fill-rule": "evenodd",
+  "fillRule": "evenodd",
   "clipRule": "evenodd",
   viewBox: "0 0 512 462.799" }, /*#__PURE__*/
 
@@ -159,13 +159,26 @@ async function getQ(n = 1) {
     });
     return ans;
   } catch (error) {
-    return [["The unexamined life is not worth living", "~ Socrates"]];
+    console.log("Did not fetch");
+    return [getRandomLocal()];
   }
 }
+//let count = new Set();
+//let file = '['
 async function getRandomQ() {
   let ans = [];
   let i = Math.floor(1 + 674 * Math.random());
   await getQ(i).then(res => ans = res);
+  // if (!count.has(i)) {
+  //   console.log("Got for", i, "quotes", `\n`);
+  //   count.add(i);
+  //   file += '[' + ans.map(a => '"' + a.join("\" , \"") + '"').join("], [") + ']';
+  // }
+  // if (count.size > 10) {
+  //   console.log("File is ready.");
+  //   file += ']';
+  //   console.log(file);
+  // }
   let newPool = [];
   for (let k = 0; k < 5; k++) {
     newPool.push(pool[0 + Math.floor(pool.length * Math.random())]);
