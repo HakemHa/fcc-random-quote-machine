@@ -180,12 +180,12 @@ async function getRandomQ() {
   // }
   let newPool = [];
   for (let k = 0; k < 5; k++) {
-    if(pool.length > 0) {
+    if(pool.length > 1) {
       newPool.push(pool[0 + Math.floor(pool.length * Math.random())]);
     }
   }
   for (let k = 0; k < 25; k++) {
-    if(ans.length > 0) {
+    if(ans.length > 1) {
       newPool.push(ans[0 + Math.floor(ans.length * Math.random())]);
     }
   }
