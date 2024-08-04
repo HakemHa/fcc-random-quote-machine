@@ -143,8 +143,8 @@ async function getQ(n = 1) {
   let ans;
   try {
     ans = fetch(
-    `https://valuesofthewise.com/wisdom-quote-search-engine/?keyword=+&author=&gender=&eth=&search_quotes=Search&pages=${n}&skip=0&pageno=2`).
-
+      `https://valuesofthewise.com/wisdom-quote-search-engine/?keyword=+&author=&gender=&eth=&search_quotes=Search&pages=${n}&skip=0&pageno=2`
+    ).
     then(data => data.text()).
     then(str => new window.DOMParser().parseFromString(str, "text/html")).
     then(doc => doc.querySelectorAll(".result_list")).
@@ -159,7 +159,6 @@ async function getQ(n = 1) {
     });
     return ans;
   } catch (error) {
-    console.log("Did not fetch");
     return [getRandomLocal()];
   }
 }
@@ -168,7 +167,7 @@ async function getQ(n = 1) {
 async function getRandomQ() {
   let ans = [];
   let i = Math.floor(1 + 674 * Math.random());
-  await getQ(i).then(res => ans = res);
+  await getQ(i).then(res => res.length > 0 ? ans = res : ans = [getRandomLocal()]).catch(er => ans = [getRandomLocal()]);
   // if (!count.has(i)) {
   //   console.log("Got for", i, "quotes", `\n`);
   //   count.add(i);
@@ -181,10 +180,14 @@ async function getRandomQ() {
   // }
   let newPool = [];
   for (let k = 0; k < 5; k++) {
-    newPool.push(pool[0 + Math.floor(pool.length * Math.random())]);
+    if(pool.length > 0) {
+      newPool.push(pool[0 + Math.floor(pool.length * Math.random())]);
+    }
   }
   for (let k = 0; k < 25; k++) {
-    newPool.push(ans[0 + Math.floor(ans.length * Math.random())]);
+    if(ans.length > 0) {
+      newPool.push(ans[0 + Math.floor(ans.length * Math.random())]);
+    }
   }
   pool = newPool;
   let j = Math.floor(0 + ans.length * Math.random());
